@@ -1,0 +1,14 @@
+<div *ngIf="animal" class="animal">
+  <div class="animal__image-container">
+    <img class="animal__image" [src]="animal.imagen" alt="animal imagen" fill />
+  </div>
+  <div class="animal__image-container">
+    <h3 class="animal__name">{{ animal.nombre }}</h3>
+    <p class="animal__info">{{ animal.descripcion }}</p>
+    <div class="animal__info">
+      Edad: {{ animal.edad }} {{ animal.edad === 1 ? "año" : "años" }}
+      <p class="animal__type">{{ animal.tipo_animal }}</p>
+    </div>
+  </div>
+  <button class="animal__button" (click)="onSeeMoreInfo()">Adoptar</button>
+</div>

@@ -1,0 +1,63 @@
+.home {
+  text-align: center;
+}
+
+.home__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__animals {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.home__animals_title {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  color: #168aad;
+}
+
+@media (max-width: 768px) {
+  .home img {
+    margin-top: 100px;
+  }
+  .home__animals_title {
+    font-size: 18px;
+  }
+
+  .home__animals {
+    padding-top: 15px;
+    justify-content: center;
+  }
+
+  .home__info {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .home__animals_title {
+    font-size: 16px;
+  }
+
+  .home__info {
+    padding: 10px;
+  }
+
+  .home__animals {
+    padding-top: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  app-animal {
+    margin: 10px 0;
+    width: 90%;
+  }
+}

@@ -1,0 +1,132 @@
+$color-primary: #52b69a;
+$color-secondary: #d9ed92;
+$color-accent: #1a759f;
+$color-text-light: #ffffff;
+$color-text-dark: #1e3740;
+$color-background: rgb(243, 243, 243);
+
+.animal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-secondary;
+  color: $color-text-dark;
+  width: 320px;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border-bottom: 4px solid $color-primary;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__info {
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $color-accent;
+    margin: 8px 0;
+  }
+
+  &__description {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: darken($color-text-dark, 15%);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #d9d9d9;
+    padding: 10px 0;
+    width: 100%;
+
+    & > p {
+      margin: 4px 0;
+    }
+  }
+
+  &__button {
+    background-color: $color-accent;
+    color: $color-text-light;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+      background-color: darken($color-accent, 10%);
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .animal {
+    width: 100%;
+    padding: 12px;
+
+    &__name {
+      font-size: 1.2rem;
+    }
+
+    &__description {
+      font-size: 0.9rem;
+    }
+
+    &__button {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .animal {
+    padding: 8px;
+
+    &__name {
+      font-size: 1.1rem;
+    }
+
+    &__description {
+      font-size: 0.85rem;
+    }
+
+    &__button {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+    }
+  }
+}

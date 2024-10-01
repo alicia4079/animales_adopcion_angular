@@ -1,0 +1,13 @@
+<div class="home">
+  <img src="assets/perro.jpg" alt="perro" />
+  <div class="home__info">
+    <h1 class="home__title">Un compañero de vida</h1>
+  </div>
+  <p class="home__animals_title">Nuestros peludos más mayores</p>
+  <div class="home__animals">
+    <app-animal
+      *ngFor="let animal of topAnimals"
+      [animal]="animal"
+    ></app-animal>
+  </div>
+</div>

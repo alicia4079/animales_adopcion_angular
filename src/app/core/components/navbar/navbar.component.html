@@ -1,0 +1,19 @@
+<div class="navBar">
+  <a [routerLink]="['/home']">
+    <img
+      class="navBar__logo"
+      src="assets/logo.jpg"
+      alt="logo"
+      (click)="goToHome()"
+    />
+  </a>
+  <a [routerLink]="['/animals']" [routerLinkActive]="'navbar__link--active'">
+    Nuestros peluditos
+  </a>
+  <p
+    class="navbar__info-message"
+    style="color: #d9534f; font-size: 18px; font-weight: bold"
+  >
+    Adopta!
+  </p>
+</div>

@@ -1,0 +1,98 @@
+<div class="animal-detail">
+  <div *ngIf="animal && enrolementForm" class="animal-detail__form">
+    <h2 class="form__title">Rellena el formulario de inscripción</h2>
+    <form class="form" [formGroup]="enrolementForm" (submit)="enroleAnimal()">
+      <fieldset class="form__fieldset form__fieldset--full">
+        <label>Animal</label>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="nombre"
+          readonly
+        />
+      </fieldset>
+      <fieldset class="form__fieldset">
+        <label>Nombre</label>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="name"
+          placeholder="Escribe tu nombre"
+        />
+      </fieldset>
+      <fieldset class="form__fieldset">
+        <label>Apellidos</label>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="surname"
+          placeholder="Tus apellidos completos"
+        />
+      </fieldset>
+      <fieldset class="form__fieldset">
+        <label>DNI</label>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="DNI"
+          placeholder="Escribe tu DNI"
+        />
+        <div
+          *ngIf="
+            enrolementForm.get('DNI')?.hasError('invalidDNI') &&
+            enrolementForm.get('DNI')?.touched
+          "
+          class="form__error"
+        >
+          El DNI no es válido.
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset">
+        <label>Edad</label>
+        <input class="form__input" type="number" formControlName="age" />
+        <div
+          *ngIf="
+            enrolementForm.get('age')?.hasError('invalidAge') &&
+            enrolementForm.get('age')?.touched
+          "
+          class="form__error"
+        >
+          La edad debe ser menor a 100.
+        </div>
+      </fieldset>
+      <fieldset class="form__fieldset form__fieldset--checkbox">
+        <input type="checkbox" formControlName="other_animals" />
+        <label>¿Tiene más animales en casa?</label>
+      </fieldset>
+      <fieldset
+        class="form__fieldset"
+        *ngIf="enrolementForm.get('other_animals')?.value"
+      >
+        <label>Descripción de otros animales</label>
+        <input
+          class="form__input"
+          formControlName="animal_description"
+          placeholder="Describe los otros animales"
+        />
+      </fieldset>
+      <button
+        class="form__button"
+        type="submit"
+        [disabled]="enrolementForm.invalid"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+  <div *ngIf="animal" class="animal-detail__info">
+    <h3 class="animal-info__summary">Resumen de inscripción</h3>
+    <img
+      class="animal-info__img"
+      [src]="animal.imagen"
+      alt="{{ animal.nombre }}"
+    />
+    <p class="animal-info__nombre">{{ animal.nombre }}</p>
+    <p class="animal-info__description">{{ animal.descripcion }}</p>
+  </div>
+</div>
